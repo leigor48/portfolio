@@ -9,22 +9,21 @@ interface ProjectCardProps {
   tags: string[];
   githubUrl: string;
   category: string;
+  image: string; 
 }
 
-const ProjectCard = ({ title, description, tags, githubUrl, category }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tags, githubUrl, category, image }: ProjectCardProps) => {
   return (
     <Card 
       className="group relative overflow-hidden border-border bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-accent hover-lift"
       data-category={category}
     >
-      <div className="aspect-video bg-secondary/50 relative overflow-hidden hover-zoom-image">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <img 
-            src="/placeholder.svg" 
-            alt={title}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="aspect-video bg-secondary/50 relative overflow-hidden">
+        <img 
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" // Zoom-Effekt
+        />
       </div>
       
       <div className="p-6 space-y-4">

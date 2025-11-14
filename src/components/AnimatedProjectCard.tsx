@@ -7,6 +7,7 @@ interface AnimatedProjectCardProps {
   tags: string[];
   githubUrl: string;
   category: string;
+  image: string;
   delay?: number;
 }
 

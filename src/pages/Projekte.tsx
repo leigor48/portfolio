@@ -2,53 +2,25 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import AnimatedProjectCard from "@/components/AnimatedProjectCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-
+import { projects } from "@/lib/projects";
 
 const Projekte = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   
-  // Scroll animation refs
   const headerRef = useScrollAnimation({ threshold: 0.2 });
   const filterRef = useScrollAnimation({ threshold: 0.2 });
-
-  const projects = [
-    {
-      title: "RAG-Pipeline / AI-Agent",
-      description: "Entwicklung eines intelligenten AI-Agenten mit Retrieval-Augmented Generation für kontextbasierte Antworten und semantische Suche. Implementierung von Vector-Datenbanken für effiziente Dokumentensuche.",
-      tags: ["Python", "LangChain", "ChromaDB", "Ollama3"],
-      githubUrl: "https://github.com",
-      category: "ai python"
-    },
-    {
-      title: "Netzwerk-Visualisierungs-Tool",
-      description: "Interaktives Tool zur Visualisierung komplexer Netzwerkstrukturen mit Echtzeit-Updates und benutzerdefinierten Filtern. Ermöglicht dynamische Analyse von Beziehungen und Abhängigkeiten.",
-      tags: ["React", "TypeScript", "Node.js", "API"],
-      githubUrl: "https://github.com",
-      category: "react nodejs"
-    },
-    {
-      title: "Budget-Tracking Backend",
-      description: "RESTful API Backend für persönliches Budget-Management mit robuster Datenverwaltung und Authentifizierung. Unterstützt Multi-User-Funktionalität und detaillierte Finanzanalysen.",
-      tags: ["Node.js", "Express", "REST API"],
-      githubUrl: "https://github.com",
-      category: "nodejs"
-    }
-  ];
 
   const filters = [
     { id: "all", label: "Alle" },
     { id: "ai", label: "AI / ML" },
-    { id: "react", label: "React" },
-    { id: "nodejs", label: "Node.js" },
-    { id: "python", label: "Python" }
+    { id: "fullstack", label: "Full-Stack" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Backend" }
   ];
 
   const filteredProjects = activeFilter === "all"
     ? projects
-    : projects.filter(project => 
-        project.category.toLowerCase().includes(activeFilter.toLowerCase())
-      );
+    : projects.filter(project => project.category === activeFilter);
 
   return (
     <div className="min-h-screen bg-background py-12">
@@ -59,7 +31,7 @@ const Projekte = () => {
             Meine Projekte
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Eine Übersicht meiner technischen Projekte in den Bereichen AI, Full-Stack Development und Backend-Architektur
+            Eine Übersicht meiner privaten, schulischen und (sofern möglich) betrieblichen Projekte
           </p>
         </div>
 
@@ -83,8 +55,10 @@ const Projekte = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div 
+          key={activeFilter} 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {filteredProjects.map((project, index) => (
             <AnimatedProjectCard 
               key={project.title} 

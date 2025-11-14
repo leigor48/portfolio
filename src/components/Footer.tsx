@@ -6,12 +6,12 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Igor Tanaskoski. Alle Rechte vorbehalten.
+            © 2025 Igor Tanaskoski. Alle Rechte vorbehalten.
           </p>
           
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/leigor48"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -20,7 +20,7 @@ const Footer = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/igor-tanaskoski/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"

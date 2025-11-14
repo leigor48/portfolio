@@ -17,9 +17,9 @@ const Kontakt = () => {
               Lassen Sie uns reden
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Ich bin offen für neue Herausforderungen, spannende Projekte und kreative Zusammenarbeit. 
-              Ob Sie eine Idee haben, Unterstützung bei einem Projekt benötigen oder einfach nur ein 
-              Gespräch führen möchten – ich freue mich, von Ihnen zu hören.
+              Ich bin offen für neue Herausforderungen, spannende Projekte und kreative Zusammenarbeit.
+              <br></br>
+              Ich freue mich, von Ihnen zu hören.
             </p>
           </div>
 
@@ -27,7 +27,7 @@ const Kontakt = () => {
           <div ref={contactRef} className="space-y-6 hidden-on-load">
             {/* Email */}
             <a 
-              href="mailto:igor.tanaskoski@example.com"
+              href="mailto:igor.tanaskoski06@gmail.com"
               className="block"
             >
               <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
@@ -40,7 +40,7 @@ const Kontakt = () => {
                       E-Mail
                     </h2>
                     <p className="text-muted-foreground">
-                      igor.tanaskoski@example.com
+                      igor.tanaskoski06@gmail.com
                     </p>
                   </div>
                   <Button 
@@ -55,7 +55,7 @@ const Kontakt = () => {
 
             {/* LinkedIn */}
             <a 
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/igor-tanaskoski"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
@@ -85,7 +85,7 @@ const Kontakt = () => {
 
             {/* GitHub */}
             <a 
-              href="https://github.com"
+              href="https://github.com/leigor48"
               target="_blank"
               rel="noopener noreferrer"
               className="block"

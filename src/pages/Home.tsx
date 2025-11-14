@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Server, Cloud } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { projects } from "@/lib/projects";
 
 
 const Home = () => {
@@ -11,29 +12,7 @@ const Home = () => {
   const featuredRef = useScrollAnimation({ threshold: 0.15 });
   const expertiseRef = useScrollAnimation({ threshold: 0.15 });
 
-  const featuredProjects = [
-    {
-      title: "RAG-Pipeline / AI-Agent",
-      description: "Entwicklung eines intelligenten AI-Agenten mit Retrieval-Augmented Generation für kontextbasierte Antworten und semantische Suche.",
-      tags: ["Python", "LangChain", "ChromaDB", "Ollama3"],
-      githubUrl: "https://github.com",
-      category: "ai python"
-    },
-    {
-      title: "Netzwerk-Visualisierungs-Tool",
-      description: "Interaktives Tool zur Visualisierung komplexer Netzwerkstrukturen mit Echtzeit-Updates und benutzerdefinierten Filtern.",
-      tags: ["React", "TypeScript", "Node.js", "API"],
-      githubUrl: "https://github.com",
-      category: "react nodejs"
-    },
-    {
-      title: "Budget-Tracking Backend",
-      description: "RESTful API Backend für persönliches Budget-Management mit robuster Datenverwaltung und Authentifizierung.",
-      tags: ["Node.js", "Express", "REST API"],
-      githubUrl: "https://github.com",
-      category: "nodejs"
-    }
-  ];
+  const featuredProjects = projects.slice(0, 3);
 
   const expertise = [
     {
@@ -66,8 +45,9 @@ const Home = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Software-Entwickler mit Fokus auf AI/ML-Integration, Full-Stack Development und Cloud-basierte Lösungen. 
-              Spezialisiert auf die Entwicklung intelligenter, skalierbarer Anwendungen.
+              Software-Entwickler mit Erfahrung in RAG, Full-Stack-Development und ML. 
+              <br></br>
+              Passion für Entwicklung intelligenter und skalierbarer Anwendungen.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

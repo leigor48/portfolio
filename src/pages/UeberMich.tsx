@@ -14,7 +14,7 @@ const UeberMich = () => {
     {
       icon: Sparkles,
       title: "AI / Machine Learning",
-      description: "Spezialisiert auf die Integration von AI-Lösungen in bestehende Systeme. Erfahrung mit LangChain, ChromaDB, und modernen ML-Frameworks wie Ollama. Entwicklung von RAG-Pipelines und intelligenten Agenten für kontextbasierte Informationsverarbeitung."
+      description: "Erfahrung mit LangChain, ChromaDB, und modernen LLMs-Frameworks wie Ollama. Entwicklung von RAG-Pipelines und intelligenten Agenten für kontextbasierte Informationsverarbeitung."
     },
     {
       icon: Server,
@@ -24,7 +24,7 @@ const UeberMich = () => {
     {
       icon: Cloud,
       title: "Cloud & Infrastructure",
-      description: "Entwicklung und Deployment skalierbarer Cloud-basierter Lösungen. Vertraut mit modernen DevOps-Praktiken, Container-Orchestrierung und Cloud-Plattformen. Fokus auf automatisierte, wartbare Infrastruktur-Lösungen."
+      description: "Vertraut mit modernen DevOps-Praktiken und Cloud-Plattformen. Fokus auf automatisierte, wartbare Infrastruktur-Lösungen."
     },
     {
       icon: Shield,
@@ -34,10 +34,10 @@ const UeberMich = () => {
   ];
 
   const techStack = {
-    "AI & Machine Learning": ["Python", "LangChain", "ChromaDB", "Ollama", "TensorFlow"],
-    "Frontend": ["React", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS"],
-    "Backend": ["Node.js", "Express", "REST APIs", "GraphQL"],
-    "Tools & Platforms": ["Git", "Docker", "VS Code", "Postman"]
+    "Python": ["Pandas", "LangChain", "ChromaDB", "Ollama", "scikit-learn"],
+    "Frontend": ["React", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS", "Vite"],
+    "Backend": ["Node.js", "Express", "REST APIs", "GraphQL", "ASP.NET Core"],
+    "Tools & Platforms": ["AWS", "Git", "Docker", "Postman"]
   };
 
   return (
@@ -59,32 +59,32 @@ const UeberMich = () => {
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
               Meine Stärken
             </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {expertise.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div 
-                  key={item.title}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group hover-lift"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {expertise.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group hover-lift"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-3">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -92,20 +92,26 @@ const UeberMich = () => {
         <section className="mb-20">
           <div ref={cvRef} className="hidden-on-load">
             <div className="bg-gradient-to-br from-primary/10 via-background to-background border border-primary/20 rounded-lg p-12 text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Meinen Lebenslauf herunterladen
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Erfahren Sie mehr über meinen beruflichen Werdegang, Qualifikationen und Erfolge im Detail
-            </p>
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group hover-scale"
-            >
-              <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
-              Lebenslauf herunterladen (PDF)
-            </Button>
-          </div>
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Meinen Lebenslauf herunterladen
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Erfahren Sie mehr über meinen beruflichen Werdegang, Qualifikationen und Erfolge im Detail
+              </p>
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group hover-scale"
+                asChild
+              >
+                <a
+                  href="/cv_it.pdf"
+                  download="Igor_Tanaskoski_Lebenslauf.pdf"
+                >
+                  <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
+                  Lebenslauf herunterladen (PDF)
+                </a>
+              </Button>
+            </div>
           </div>
         </section>
 
@@ -115,29 +121,29 @@ const UeberMich = () => {
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
               Tech Stack & Kompetenzen
             </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {Object.entries(techStack).map(([category, technologies]) => (
-              <div 
-                key={category}
-                className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover-lift"
-              >
-                <h3 className="text-lg font-semibold text-primary mb-4">
-                  {category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {technologies.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="px-3 py-1 bg-secondary/50 text-foreground rounded-md text-sm border border-border hover:border-primary/50 transition-all duration-300 hover-scale cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Object.entries(techStack).map(([category, technologies]) => (
+                <div
+                  key={category}
+                  className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover-lift"
+                >
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-secondary/50 text-foreground rounded-md text-sm border border-border hover:border-primary/50 transition-all duration-300 hover-scale cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
