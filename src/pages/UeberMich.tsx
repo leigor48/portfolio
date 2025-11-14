@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Download, Sparkles, Server, Cloud, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 const UeberMich = () => {
+  // Scroll animation refs
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const expertiseRef = useScrollAnimation({ threshold: 0.15 });
+  const cvRef = useScrollAnimation({ threshold: 0.15 });
+  const techStackRef = useScrollAnimation({ threshold: 0.15 });
+
   const expertise = [
     {
       icon: Sparkles,
@@ -36,7 +44,7 @@ const UeberMich = () => {
     <div className="min-h-screen bg-background py-12">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16 hidden-on-load">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Über Mich
           </h1>
@@ -47,9 +55,10 @@ const UeberMich = () => {
 
         {/* Expertise Section */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-            Meine Stärken
-          </h2>
+          <div ref={expertiseRef} className="hidden-on-load">
+            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
+              Meine Stärken
+            </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {expertise.map((item) => {
@@ -57,7 +66,7 @@ const UeberMich = () => {
               return (
                 <div 
                   key={item.title}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group hover-lift"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -76,11 +85,13 @@ const UeberMich = () => {
               );
             })}
           </div>
+          </div>
         </section>
 
         {/* CV Download CTA */}
         <section className="mb-20">
-          <div className="bg-gradient-to-br from-primary/10 via-background to-background border border-primary/20 rounded-lg p-12 text-center">
+          <div ref={cvRef} className="hidden-on-load">
+            <div className="bg-gradient-to-br from-primary/10 via-background to-background border border-primary/20 rounded-lg p-12 text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Meinen Lebenslauf herunterladen
             </h2>
@@ -89,25 +100,27 @@ const UeberMich = () => {
             </p>
             <Button 
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group hover-scale"
             >
               <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
               Lebenslauf herunterladen (PDF)
             </Button>
           </div>
+          </div>
         </section>
 
         {/* Tech Stack */}
         <section>
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-            Tech Stack & Kompetenzen
-          </h2>
+          <div ref={techStackRef} className="hidden-on-load">
+            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
+              Tech Stack & Kompetenzen
+            </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Object.entries(techStack).map(([category, technologies]) => (
               <div 
                 key={category}
-                className="bg-card border border-border rounded-lg p-6"
+                className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 hover-lift"
               >
                 <h3 className="text-lg font-semibold text-primary mb-4">
                   {category}
@@ -116,7 +129,7 @@ const UeberMich = () => {
                   {technologies.map((tech) => (
                     <span 
                       key={tech}
-                      className="px-3 py-1 bg-secondary/50 text-foreground rounded-md text-sm border border-border hover:border-primary/50 transition-colors"
+                      className="px-3 py-1 bg-secondary/50 text-foreground rounded-md text-sm border border-border hover:border-primary/50 transition-all duration-300 hover-scale cursor-default"
                     >
                       {tech}
                     </span>
@@ -124,6 +137,7 @@ const UeberMich = () => {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </section>
       </div>
