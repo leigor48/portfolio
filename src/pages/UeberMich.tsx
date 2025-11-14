@@ -104,7 +104,7 @@ const UeberMich = () => {
                 asChild
               >
                 <a
-                  href="/cv_it.pdf"
+                  href="./cv_it.pdf"
                   download="Igor_Tanaskoski_Lebenslauf.pdf"
                 >
                   <Download className="mr-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
