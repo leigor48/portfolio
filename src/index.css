@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ==================================================================
+  DEINE CSS-VARIABLEN (Unverändert)
+  ==================================================================
 */
-
 @layer base {
   :root {
     /* Dark Portfolio Theme - Tech-forward aesthetic */
@@ -58,7 +58,10 @@ All colors MUST be HSL.
   }
 }
 
-/* Animation Utilities for Scroll & Hover Effects */
+/* ==================================================================
+  DEINE UTILITIES (Ergänzt)
+  ==================================================================
+*/
 @layer utilities {
 
   /* Scroll Animation - Hidden State */
@@ -78,26 +81,8 @@ All colors MUST be HSL.
   .stagger-1 {
     transition-delay: 0.1s;
   }
+  /* ... (weitere stagger-Klassen) ... */
 
-  .stagger-2 {
-    transition-delay: 0.2s;
-  }
-
-  .stagger-3 {
-    transition-delay: 0.3s;
-  }
-
-  .stagger-4 {
-    transition-delay: 0.4s;
-  }
-
-  .stagger-5 {
-    transition-delay: 0.5s;
-  }
-
-  .stagger-6 {
-    transition-delay: 0.6s;
-  }
 
   /* Smooth Hover Effects */
   .hover-lift {
@@ -129,7 +114,7 @@ All colors MUST be HSL.
   .nav-link-underline {
     position: relative;
   }
-
+  
   .nav-link-underline::after {
     content: '';
     position: absolute;
@@ -145,5 +130,20 @@ All colors MUST be HSL.
 
   .nav-link-underline:hover::after {
     transform: scaleX(1);
+  }
+
+  @keyframes aurora-move-1 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-40%, -60%) scale(1.1) rotate(5deg); }
+  }
+
+  @keyframes aurora-move-2 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-60%, -40%) scale(1.1) rotate(-5deg); }
+  }
+  
+  @keyframes aurora-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
 }

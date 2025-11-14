@@ -26,16 +26,14 @@ const Kontakt = () => {
           {/* Contact Options */}
           <div ref={contactRef} className="space-y-6 hidden-on-load">
             
-            {/* --- E-Mail (KORRIGIERT) --- */}
+            {/* --- E-Mail --- */}
             <a 
               href="mailto:igor.tanaskoski06@gmail.com"
               className="block"
             >
               <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
-                {/* Dieser Container ist jetzt 'flex-col' auf Mobile und 'flex-row' auf Desktop */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   
-                  {/* Neuer Wrapper für Icon + Text */}
                   <div className="flex items-center gap-6">
                     <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Mail className="h-8 w-8 text-primary" />
@@ -44,7 +42,7 @@ const Kontakt = () => {
                       <h2 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                         E-Mail
                       </h2>
-                      <p className="text-muted-foreground break-all md:break-normal"> {/* 'break-all' für lange E-Mail auf Mobile */}
+                      <p className="text-muted-foreground break-all md:break-normal">
                         igor.tanaskoski06@gmail.com
                       </p>
                     </div>
@@ -52,8 +50,8 @@ const Kontakt = () => {
                   
                   <Button 
                     variant="outline"
-                    // 'w-full' auf Mobile, 'w-auto' auf Desktop
-                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
+                    // KORREKTUR: hover:bg-primary/10 hinzugefügt
+                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary hover:bg-primary/10 transition-all duration-300 hover-scale"
                   >
                     Nachricht senden
                   </Button>
@@ -61,7 +59,7 @@ const Kontakt = () => {
               </div>
             </a>
 
-            {/* --- LinkedIn (KORRIGIERT) --- */}
+            {/* --- LinkedIn --- */}
             <a 
               href="https://www.linkedin.com/in/igor-tanaskoski"
               target="_blank"
@@ -71,7 +69,6 @@ const Kontakt = () => {
               <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   
-                  {/* Neuer Wrapper für Icon + Text */}
                   <div className="flex items-center gap-6">
                     <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Linkedin className="h-8 w-8 text-primary" />
@@ -88,7 +85,8 @@ const Kontakt = () => {
                   
                   <Button 
                     variant="outline"
-                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
+                    // KORREKTUR: hover:bg-primary/10 hinzugefügt
+                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary hover:bg-primary/10 transition-all duration-300 hover-scale"
                   >
                     Profil ansehen
                   </Button>
@@ -96,7 +94,7 @@ const Kontakt = () => {
               </div>
             </a>
 
-            {/* --- GitHub (KORRIGIERT) --- */}
+            {/* --- GitHub --- */}
             <a 
               href="https://github.com/leigor48"
               target="_blank"
@@ -106,7 +104,6 @@ const Kontakt = () => {
               <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   
-                  {/* Neuer Wrapper für Icon + Text */}
                   <div className="flex items-center gap-6">
                     <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <Github className="h-8 w-8 text-primary" />
@@ -123,7 +120,8 @@ const Kontakt = () => {
                   
                   <Button 
                     variant="outline"
-                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
+                    // KORREKTUR: hover:bg-primary/10 hinzugefügt
+                    className="w-full md:w-auto md:flex-shrink-0 border-border group-hover:border-primary group-hover:text-primary hover:bg-primary/10 transition-all duration-300 hover-scale"
                   >
                     Profil ansehen
                   </Button>

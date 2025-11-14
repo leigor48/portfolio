@@ -80,7 +80,7 @@ const ProjectCard = ({
               <Button
                 variant="outline"
                 size="sm"
-                className="gap-2 hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
+                className="gap-2 hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
                 asChild
               >
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
