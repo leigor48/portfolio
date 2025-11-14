@@ -46,7 +46,9 @@ const Projekte = () => {
                 className={
                   activeFilter === filter.id
                     ? "bg-primary text-primary-foreground hover:bg-primary/90 hover-scale"
-                    : "border-border hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
+                    // --- KORREKTUR ---
+                    // hover:bg-primary/10 hinzugefügt, um den lila Standard-Hover zu überschreiben
+                    : "border-border hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
                 }
               >
                 {filter.label}

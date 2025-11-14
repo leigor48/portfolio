@@ -34,13 +34,42 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
+      
+      {/* HERO SECTION - JETZT MIT "WOW"-EFFEKT
+        1.  Das Dot-Grid (bg-[radial-gradient...]) wird auf die Sektion selbst angewendet.
+        2.  Das "aurora-container" div hält die animierten, pulsierenden Glows.
+      */}
+      <section 
+        className="relative py-20 md:py-32 overflow-hidden 
+                   bg-[radial-gradient(hsl(var(--border)_/_0.3)_1px,transparent_1px)] 
+                   [background-size:20px_20px]"
+      >
+        
+        {/* NEUER HINTERGRUND: Dynamisches, animiertes Aurora-System */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          {/* Glow 1 (Primary - Cyan) */}
+          <div 
+            className="absolute top-1/2 left-1/2 w-[1000px] h-[700px] 
+                       bg-gradient-radial from-primary/30 via-primary/10 to-transparent 
+                       rounded-full blur-[150px]
+                       animate-[aurora-move-1_15s_ease-in-out_infinite,aurora-pulse_10s_ease-in-out_infinite]"
+          />
+          {/* Glow 2 (Accent - Violett) */}
+          <div 
+            className="absolute top-1/2 left-1/2 w-[1200px] h-[800px] 
+                       bg-gradient-radial from-accent/30 via-accent/10 to-transparent 
+                       rounded-full blur-[150px] 
+                       animate-[aurora-move-2_18s_ease-in-out_infinite,aurora-pulse_12s_ease-in-out_infinite_reverse]"
+          />
+        </div>
         
         <div ref={heroRef} className="container mx-auto px-6 relative z-10 hidden-on-load">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            
+            {/* NEUE HEADLINE:
+              Profitiert jetzt vom echten 'Primary -> Accent' Gradienten.
+            */}
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Igor Tanaskoski: Engineering AI-Driven Solutions
             </h1>
             
@@ -51,9 +80,13 @@ const Home = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              
+              {/* NEUER PRIMARY BUTTON:
+                Nutzt ebenfalls den neuen 'Primary -> Accent' Gradienten.
+              */}
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group hover-scale"
+                className="text-primary-foreground bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-accent group hover-scale"
                 asChild
               >
                 <Link to="/projekte">
@@ -61,6 +94,7 @@ const Home = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
+              
               <Button 
                 size="lg" 
                 variant="outline"
@@ -77,7 +111,8 @@ const Home = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-card/30">
+      {/* Diese Sektion profitiert jetzt vom "Glassmorphism" der Karten */}
+      <section className="py-20 border-t border-border/50">
         <div ref={featuredRef} className="container mx-auto px-6 hidden-on-load">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -90,6 +125,13 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {featuredProjects.map((project) => (
+              /* WICHTIG: Ihre 'ProjectCard' Komponente MUSS jetzt 
+                die '.glass-effect' Klasse verwenden, damit dies funktioniert.
+                
+                Beispiel: 
+                In ProjectCard.js sollte das äußere div 
+                className="glass-effect rounded-lg ..." haben.
+              */
               <ProjectCard key={project.title} {...project} />
             ))}
           </div>
@@ -125,9 +167,12 @@ const Home = () => {
             {expertise.map((item) => {
               const Icon = item.icon;
               return (
+                /* ANWENDUNG DES "GLASS-EFFECTS" - Das hatten Sie bereits korrekt vorbereitet.
+                  Mit unserem neuen CSS wird dies jetzt korrekt gerendert.
+                */
                 <div 
                   key={item.title}
-                  className="bg-card border border-border rounded-lg p-8 text-center hover:border-primary/50 transition-all duration-300 hover:shadow-accent group"
+                  className="glass-effect rounded-lg p-8 text-center transition-all duration-300 hover:shadow-accent group hover-lift"
                 >
                   <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                     <Icon className="h-8 w-8 text-primary" />
