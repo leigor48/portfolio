@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Server, Cloud } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 const Home = () => {
+  // Scroll animation refs for different sections
+  const heroRef = useScrollAnimation({ threshold: 0.2 });
+  const featuredRef = useScrollAnimation({ threshold: 0.15 });
+  const expertiseRef = useScrollAnimation({ threshold: 0.15 });
+
   const featuredProjects = [
     {
       title: "RAG-Pipeline / AI-Agent",
@@ -52,7 +59,7 @@ const Home = () => {
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div ref={heroRef} className="container mx-auto px-6 relative z-10 hidden-on-load">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               Igor Tanaskoski: Engineering AI-Driven Solutions
@@ -66,7 +73,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-accent group hover-scale"
                 asChild
               >
                 <Link to="/projekte">
@@ -77,7 +84,7 @@ const Home = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-border hover:border-primary hover:text-primary transition-colors"
+                className="border-border hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
                 asChild
               >
                 <Link to="/kontakt">
@@ -91,7 +98,7 @@ const Home = () => {
 
       {/* Featured Projects */}
       <section className="py-20 bg-card/30">
-        <div className="container mx-auto px-6">
+        <div ref={featuredRef} className="container mx-auto px-6 hidden-on-load">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Featured Projects
@@ -111,7 +118,7 @@ const Home = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-border hover:border-primary hover:text-primary transition-colors"
+              className="border-border hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
               asChild
             >
               <Link to="/projekte">
@@ -124,7 +131,7 @@ const Home = () => {
 
       {/* Expertise */}
       <section className="py-20">
-        <div className="container mx-auto px-6">
+        <div ref={expertiseRef} className="container mx-auto px-6 hidden-on-load">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Meine Expertise
@@ -160,7 +167,7 @@ const Home = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-border hover:border-primary hover:text-primary transition-colors"
+              className="border-border hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
               asChild
             >
               <Link to="/ueber-mich">

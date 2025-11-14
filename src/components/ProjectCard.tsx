@@ -14,11 +14,17 @@ interface ProjectCardProps {
 const ProjectCard = ({ title, description, tags, githubUrl, category }: ProjectCardProps) => {
   return (
     <Card 
-      className="group relative overflow-hidden border-border bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-accent"
+      className="group relative overflow-hidden border-border bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-accent hover-lift"
       data-category={category}
     >
-      <div className="aspect-video bg-secondary/50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="aspect-video bg-secondary/50 relative overflow-hidden hover-zoom-image">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <img 
+            src="/placeholder.svg" 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
       
       <div className="p-6 space-y-4">
@@ -46,7 +52,7 @@ const ProjectCard = ({ title, description, tags, githubUrl, category }: ProjectC
           <Button 
             variant="outline" 
             size="sm" 
-            className="gap-2 hover:border-primary hover:text-primary transition-colors"
+            className="gap-2 hover:border-primary hover:text-primary transition-all duration-300 hover-scale"
             asChild
           >
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
@@ -57,7 +63,7 @@ const ProjectCard = ({ title, description, tags, githubUrl, category }: ProjectC
           <Button 
             variant="default" 
             size="sm" 
-            className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
+            className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 hover-scale"
           >
             <ExternalLink className="h-4 w-4" />
             Details

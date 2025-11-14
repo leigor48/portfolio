@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Github } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 
 const Kontakt = () => {
+  const headerRef = useScrollAnimation({ threshold: 0.2 });
+  const contactRef = useScrollAnimation({ threshold: 0.15 });
+
   return (
     <div className="min-h-screen bg-background py-12">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div ref={headerRef} className="text-center mb-16 hidden-on-load">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Lassen Sie uns reden
             </h1>
@@ -19,13 +24,13 @@ const Kontakt = () => {
           </div>
 
           {/* Contact Options */}
-          <div className="space-y-6">
+          <div ref={contactRef} className="space-y-6 hidden-on-load">
             {/* Email */}
             <a 
               href="mailto:igor.tanaskoski@example.com"
               className="block"
             >
-              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer">
+              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
                 <div className="flex items-center gap-6">
                   <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Mail className="h-8 w-8 text-primary" />
@@ -40,7 +45,7 @@ const Kontakt = () => {
                   </div>
                   <Button 
                     variant="outline"
-                    className="border-border group-hover:border-primary group-hover:text-primary transition-colors"
+                    className="border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
                   >
                     Nachricht senden
                   </Button>
@@ -55,7 +60,7 @@ const Kontakt = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer">
+              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
                 <div className="flex items-center gap-6">
                   <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Linkedin className="h-8 w-8 text-primary" />
@@ -70,7 +75,7 @@ const Kontakt = () => {
                   </div>
                   <Button 
                     variant="outline"
-                    className="border-border group-hover:border-primary group-hover:text-primary transition-colors"
+                    className="border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
                   >
                     Profil ansehen
                   </Button>
@@ -85,7 +90,7 @@ const Kontakt = () => {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer">
+              <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-accent group cursor-pointer hover-lift">
                 <div className="flex items-center gap-6">
                   <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Github className="h-8 w-8 text-primary" />
@@ -100,7 +105,7 @@ const Kontakt = () => {
                   </div>
                   <Button 
                     variant="outline"
-                    className="border-border group-hover:border-primary group-hover:text-primary transition-colors"
+                    className="border-border group-hover:border-primary group-hover:text-primary transition-all duration-300 hover-scale"
                   >
                     Profil ansehen
                   </Button>

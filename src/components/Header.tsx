@@ -20,7 +20,7 @@ const Header = () => {
           <Link
             to="/"
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-sm font-medium transition-colors hover:text-primary nav-link-underline",
               isActive("/") ? "text-primary" : "text-muted-foreground"
             )}
           >
@@ -29,7 +29,7 @@ const Header = () => {
           <Link
             to="/projekte"
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-sm font-medium transition-colors hover:text-primary nav-link-underline",
               isActive("/projekte") ? "text-primary" : "text-muted-foreground"
             )}
           >
@@ -38,7 +38,7 @@ const Header = () => {
           <Link
             to="/ueber-mich"
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-sm font-medium transition-colors hover:text-primary nav-link-underline",
               isActive("/ueber-mich") ? "text-primary" : "text-muted-foreground"
             )}
           >
@@ -47,7 +47,7 @@ const Header = () => {
           <Link
             to="/kontakt"
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-sm font-medium transition-colors hover:text-primary nav-link-underline",
               isActive("/kontakt") ? "text-primary" : "text-muted-foreground"
             )}
           >
