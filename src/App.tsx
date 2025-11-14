@@ -18,16 +18,17 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/mein-portfolio/">
+      <BrowserRouter basename="/portfolio/">
+        
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">
             <Routes>
+              {/* ... (deine Routen) ... */}
               <Route path="/" element={<Home />} />
               <Route path="/projekte" element={<Projekte />} />
               <Route path="/ueber-mich" element={<UeberMich />} />
               <Route path="/kontakt" element={<Kontakt />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
